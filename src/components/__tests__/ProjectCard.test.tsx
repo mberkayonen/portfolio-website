@@ -25,7 +25,7 @@ describe('ProjectCard', () => {
   it('does not render README area when collapsed', () => {
     render(<ProjectCard project={project} readme="# Hello" />)
 
-    expect(screen.queryByRole('region', { name: /readme/i })).not.toBeInTheDocument()
+    expect(screen.queryByText('Hello')).not.toBeInTheDocument()
     expect(screen.getByText('Read README')).toBeInTheDocument()
   })
 
