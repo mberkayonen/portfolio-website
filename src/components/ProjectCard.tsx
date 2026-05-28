@@ -48,6 +48,7 @@ export default function ProjectCard({ project, readme }: Props) {
           href={project.liveUrl}
           target="_blank"
           rel="noopener noreferrer"
+          aria-label={`View ${project.name} project`}
           className="inline-flex items-center gap-1.5 bg-stone-900 text-stone-50 text-xs font-semibold px-4 py-2 rounded-lg hover:bg-stone-700 transition-colors"
         >
           View Project
@@ -81,7 +82,18 @@ export default function ProjectCard({ project, readme }: Props) {
       {expanded && readme && (
         <div className="mt-5 pt-5 border-t border-stone-200">
           <div className="prose prose-stone prose-sm max-w-none">
-            <ReactMarkdown remarkPlugins={[remarkGfm]}>{readme}</ReactMarkdown>
+            <ReactMarkdown
+              remarkPlugins={[remarkGfm]}
+              components={{
+                a: ({ href, children }) => (
+                  <a href={href} target="_blank" rel="noopener noreferrer">
+                    {children}
+                  </a>
+                ),
+              }}
+            >
+              {readme}
+            </ReactMarkdown>
           </div>
         </div>
       )}
