@@ -44,18 +44,22 @@ export default function ProjectCard({ project, readme }: Props) {
       </div>
 
       <div className="flex items-center justify-between">
-        <a
-          href={project.liveUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label={`View ${project.name} project`}
-          className="inline-flex items-center gap-1.5 bg-stone-900 text-stone-50 text-xs font-semibold px-4 py-2 rounded-lg hover:bg-stone-700 transition-colors"
-        >
-          View Project
-          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
-            <path d="M7 17L17 7M17 7H7M17 7v10" />
-          </svg>
-        </a>
+        {project.liveUrl ? (
+          <a
+            href={project.liveUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`View ${project.name} project`}
+            className="inline-flex items-center gap-1.5 bg-stone-900 text-stone-50 text-xs font-semibold px-4 py-2 rounded-lg hover:bg-stone-700 transition-colors"
+          >
+            View Project
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
+              <path d="M7 17L17 7M17 7H7M17 7v10" />
+            </svg>
+          </a>
+        ) : (
+          <span />
+        )}
 
         {readme && (
           <button
