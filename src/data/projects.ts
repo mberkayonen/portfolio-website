@@ -27,4 +27,13 @@ export const projects: Project[] = [
     repoName: 'personalised-financial-news-feed',
     techStack: ['Next.js', 'Claude', 'NewsAPI', 'TypeScript'],
   },
+  {
+    name: 'Berlin Services Assistant',
+    description:
+      'Unofficial chatbot for Berlin city services. Recommends the right service from a curated set of ~13 common tasks and provides checklists of required documents, fees, and booking links.',
+    liveUrl: 'https://berlin-de-online-services.vercel.app',
+    repoOwner: 'mberkayonen',
+    repoName: 'berlin-de-online-services',
+    techStack: ['Next.js', 'Claude', 'AI SDK', 'TypeScript'],
+  },
 ]
